@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express, { json } from "express";
 import pg from "pg";
-import Joi from "joi";
+import Joi, { date } from "joi";
 import e from "express";
 
 const app = express()
@@ -34,3 +34,11 @@ app.use((req, res, next) =>{
     })
     next()
 })
+
+// Response Envlope
+function successResponse(req, message, data, status = 200){
+    return res.status(status).json({
+        success: true, message, data, error: null,
+    })
+}
+
