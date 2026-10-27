@@ -1,8 +1,7 @@
 import "dotenv/config";
-import express, { json } from "express";
+import express from "express";
 import pg from "pg";
-import Joi, { date } from "joi";
-import e from "express";
+import Joi from "joi";
 
 const app = express();
 const port = process.env.PORT;
@@ -16,7 +15,7 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-app.use(express, json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware Logging
